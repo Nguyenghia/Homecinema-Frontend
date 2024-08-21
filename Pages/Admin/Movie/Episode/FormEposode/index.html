@@ -12,13 +12,13 @@
           <main class="row mb-5"> 
             <form name="formtaotapphim" ng-submit="title.includes('Add')?addEposode(eposode):editEposode(eposode)" class="col-lg-6" novalidate autocomplete="off">
               <div ng-if="flagAlert_true" class="alert alert-success mb-3" role="alert">
-                  {{title.includes('Add')?"Thêm":"Cập nhật"}} tập phim thành công
+                  {{title.includes('Add')?"Add":"Update"}} eposode successfully
               </div>
               <div ng-if="flagAlert_false" class="alert alert-danger mb-3" role="alert">
-                    {{title.includes('Add')?"Thêm":"Cập nhật"}} không tập phim thành công
+                    {{title.includes('Add')?"Add":"Update"}} eposode failed
               </div>
               <div ng-if="flagAlertNotExits_true" class="alert alert-danger mb-3" role="alert">
-                  Không tìm thấy mã tập phim
+                  No eposode found
               </div>
               <div class="mb-3">
                 <input type="hidden"
@@ -26,7 +26,7 @@
                        id="eposode-idTapphim"
                        name="idTapphim"
                        ng-model="eposode.idTapphim">
-                <label for="eposode-name" class="form-label">Tên phim <span class="text-danger">*</span></label>
+                <label for="eposode-name" class="form-label">Name episode <span class="text-danger">*</span></label>
                 <input type="text"
                         class="form-control" ng-class="{'is-valid': formtaotapphim.tenTapphim.$valid, 'is-invalid': formtaotapphim.tenTapphim.$touched && formtaotapphim.tenTapphim.$invalid}"
                         id="eposode-name"
@@ -35,7 +35,7 @@
                         required>
               </div>
               <div class="mb-3">
-                <label for="eposode-luotxem" class="form-label">Lượt xem <span class="text-danger">*</span></label>
+                <label for="eposode-luotxem" class="form-label">Views <span class="text-danger">*</span></label>
                 <input type="number"
                        min="0" step="1"
                        class="form-control"
@@ -46,7 +46,7 @@
                        required>
               </div>
               <div class="mb-3">
-                <label for="eposode-image" class="form-label">Hình Phim <span class="text-danger">*</span></label>
+                <label for="eposode-image" class="form-label">Image <span class="text-danger">*</span></label>
                 <input type="text"
                        class="form-control"
                        id="eposode-image"
@@ -56,7 +56,7 @@
                        required>
               </div>
               <div class="mb-3">
-                <label for="eposode-linkVideo" class="form-label">Video Phim <span class="text-danger">*</span></label>
+                <label for="eposode-linkVideo" class="form-label">Link video <span class="text-danger">*</span></label>
                 <input type="text"
                        ng-blur="changeVideo(eposode.linkVideo)"
                        class="form-control"
@@ -82,7 +82,7 @@
               <button type="button"
                       class="btn btn-warning me-2 mb-3"
                       ng-click="resetForm()">
-                Mặc định
+                Default
               </button>
             </form>
             <div class="col-lg-6 row ">

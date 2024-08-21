@@ -12,16 +12,16 @@
           <main class="row mb-5"> 
             <form name="formtaophim" ng-submit="title.includes('Add')?addMovie(movie):editMovie(movie)" class="col-lg-6" novalidate autocomplete="off">
               <div ng-if="flagAlert_true" class="alert alert-success mb-3" role="alert">
-                  {{title.includes('Add')?"Thêm":"Cập nhật"}} phim thành công
+                  {{title.includes('Add')?"Add":"Update"}} movie successfully
               </div>
               <div ng-if="flagAlert_false" class="alert alert-danger mb-3" role="alert">
-                  Mã phim này đã tồn tại
+                  Movie already exists
               </div>
               <div ng-if="flagAlertNotExits_true" class="alert alert-danger mb-3" role="alert">
-                  Không tìm thấy mã phim
+                  No movie found
               </div>
               <div class="mb-3">
-                <label for="movie-id" class="form-label">Mã Phim <span class="text-danger">*</span></label>
+                <label for="movie-id" class="form-label">ID Movie <span class="text-danger">*</span></label>
                 <input type="text"
                         class="form-control" ng-class="{'is-valid': formtaophim.idPhim.$valid, 'is-invalid': formtaophim.idPhim.$touched && formtaophim.idPhim.$invalid}"
                         id="movie-id"
@@ -31,7 +31,7 @@
                         ng-disabled="title.includes('Edit')">
               </div>
               <div class="mb-3">
-                <label for="movie-name" class="form-label">Tên Phim <span class="text-danger">*</span></label>
+                <label for="movie-name" class="form-label">Name Movie <span class="text-danger">*</span></label>
                 <input type="text"
                        class="form-control"
                        id="movie-name"
@@ -41,7 +41,7 @@
                        required>
               </div>
               <div class="mb-3">
-                <label for="movie-image" class="form-label">Hình Phim <span class="text-danger">*</span></label>
+                <label for="movie-image" class="form-label">Image Movie <span class="text-danger">*</span></label>
                 <input type="text"
                        class="form-control"
                        id="movie-image"
@@ -51,7 +51,7 @@
                        required>
               </div>
               <div class="mb-3">
-                <label for="movie-moTa" class="form-label">Mô tả <span class="text-danger">*</span></label>
+                <label for="movie-moTa" class="form-label">Description <span class="text-danger">*</span></label>
                 <textarea type="text"
                        class="form-control"
                        id="movie-moTa"
@@ -59,7 +59,7 @@
                        ng-model="movie.moTa"></textarea>
               </div>
               <div class="mb-3">
-                <label for="movie-tacGia" class="form-label">Tác giả<span class="text-danger">*</span></label>
+                <label for="movie-tacGia" class="form-label">Author <span class="text-danger">*</span></label>
                 <input type="text"
                        class="form-control"
                        id="movie-tacGia"
@@ -69,7 +69,7 @@
                        required>
               </div>
               <div class="mb-3">
-                <label for="movie-status" class="form-label">Trạng thái <span class="text-danger">*</span></label>
+                <label for="movie-status" class="form-label">Status <span class="text-danger">*</span></label>
                 <select class="form-select"
                         id="movie-status"
                         ng-class="{'is-valid': formtaophim.trangThai.$valid, 'is-invalid': formtaophim.trangThai.$touched && formtaophim.trangThai.$invalid}"
@@ -77,7 +77,7 @@
                         ng-model="movie.trangThai"
                         required>
                   <option value="" disabled>
-                    Chọn trạng thái...
+                    Choose Status...
                   </option>
                   <option value="true">
                     ON
@@ -88,7 +88,7 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label for="movie-listIdLoai" class="form-label">Thể loại phim <span class="text-danger">*</span></label>
+                <label for="movie-listIdLoai" class="form-label">Category movie <span class="text-danger">*</span></label>
                 <select class="form-select" multiple
                         id="movie-listIdLoai"
                         ng-class="{'is-valid': formtaophim.listIdLoai.$valid, 'is-invalid': formtaophim.listIdLoai.$touched && formtaophim.listIdLoai.$invalid}"
@@ -96,7 +96,7 @@
                         ng-model="movie.listIdLoai"
                         required>
                   <option value="" disabled>
-                    Chọn thể loại...
+                   Choose category
                   </option>
                   <option ng-repeat="category in listCategory track by $index" ng-value="category.idLoai" ng-bind="category.tenLoai"></option>
                 </select>
@@ -117,7 +117,7 @@
               <button type="reset"
                       class="btn btn-warning me-2 mb-3"
                       ng-click="resetForm()">
-                Mặc định
+                Default
               </button>
             </form>
             <div class="col-lg-6">
